@@ -13,7 +13,7 @@ namespace ConsoleAppForIConTextGroup.Test
         {
             // Инициализация тестовых данных
             testFilePath = "test_employees.txt";
-            var employees = new List<Employee>
+            var testEmployees = new List<Employee>
                 {
                     new Employee(0, "John", "Doe", 100.50m),
                     new Employee(1, "Alice", "Smith", 75.25m),
