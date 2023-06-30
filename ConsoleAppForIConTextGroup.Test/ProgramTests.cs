@@ -13,7 +13,7 @@ namespace ConsoleAppForIConTextGroup.Test
         {
             // Инициализация тестовых данных
             testFilePath = "test_employees.txt";
-            var testEmployees = new List<Employee>
+            testEmployees = new List<Employee>
                 {
                     new Employee(0, "John", "Doe", 100.50m),
                     new Employee(1, "Alice", "Smith", 75.25m),
@@ -52,7 +52,7 @@ namespace ConsoleAppForIConTextGroup.Test
         public void Update_WithValidArguments_ShouldUpdateEmployee()
         {
             // Arrange
-            var args = new string[] { "-update", "1", "firstname:Mike", "lastname:Smith", "salary:20" };
+            var args = new string[] { "-update", "Id:1", "firstname:Mike", "lastname:Smith", "salary:20" };
             var expectedFirstName = "Mike";
             var expectedLastName = "Smith";
             var expectedSalary = 20m;
@@ -72,7 +72,7 @@ namespace ConsoleAppForIConTextGroup.Test
         public void Update_WithInvalidId_ShouldNotUpdateEmployee()
         {
             // Arrange
-            var args = new string[] { "-update", "3", "firstname:Mike", "lastname:Smith", "salary:20" };
+            var args = new string[] { "-update", "Id:3", "firstname:Mike", "lastname:Smith", "salary:20" };
 
             // Act
             Program.Update(args, testEmployees);
@@ -86,7 +86,7 @@ namespace ConsoleAppForIConTextGroup.Test
         public void Update_WithInvalidArguments_ShouldNotUpdateEmployee()
         {
             // Arrange
-            var args = new string[] { "-update", "1", "invalidargument" };
+            var args = new string[] { "-update", "Id:1", "invalidargument" };
 
             // Act
             Program.Update(args, testEmployees);
