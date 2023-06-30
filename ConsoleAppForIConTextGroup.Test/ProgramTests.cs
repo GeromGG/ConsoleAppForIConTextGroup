@@ -5,14 +5,12 @@ namespace ConsoleAppForIConTextGroup.Test
     [TestFixture]
     public class ProgramTests
     {
-        private string testFilePath;
         private List<Employee> testEmployees;
 
         [SetUp]
         public void Setup()
         {
             // Инициализация тестовых данных
-            testFilePath = "test_employees.txt";
             testEmployees = new List<Employee>
                 {
                     new Employee(0, "John", "Doe", 100.50m),
@@ -36,16 +34,6 @@ namespace ConsoleAppForIConTextGroup.Test
                     new Employee(18, "Ethan", "Wright", 105.75m),
                     new Employee(19, "Charlotte", "Turner", 140.0m)
                 };
-        }
-
-        [TearDown]
-        public void Cleanup()
-        {
-            // Удаление созданного тестового файла после каждого теста
-            if (File.Exists(testFilePath))
-            {
-                File.Delete(testFilePath);
-            }
         }
 
         [Test]
