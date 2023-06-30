@@ -72,11 +72,11 @@ namespace ConsoleAppForIConTextGroup.Test
         public void Update_WithInvalidId_ShouldNotUpdateEmployee()
         {
             // Arrange
-            var args = new string[] { "-update", "Id:3", "firstname:Mike", "lastname:Smith", "salary:20" };
+            var args = new string[] { "-update", "Id:23", "firstname:Mike", "lastname:Smith", "salary:20" };
 
             // Act
             Program.Update(args, testEmployees);
-            var updatedEmployee = testEmployees.Find(e => e.Id == 3);
+            var updatedEmployee = testEmployees.Find(e => e.Id == 23);
 
             // Assert
             Assert.IsNull(updatedEmployee);
@@ -86,18 +86,18 @@ namespace ConsoleAppForIConTextGroup.Test
         public void Update_WithInvalidArguments_ShouldNotUpdateEmployee()
         {
             // Arrange
-            var args = new string[] { "-update", "Id:1", "invalidargument" };
+            var args = new string[] { "-update", "Id:0", "invalidargument" };
 
             // Act
             Program.Update(args, testEmployees);
-            var updatedEmployee = testEmployees.Find(e => e.Id == 1);
+            var updatedEmployee = testEmployees.Find(e => e.Id == 0);
 
             // Assert
             Assert.IsNotNull(updatedEmployee);
             // Проверка, что значения не изменились
             Assert.AreEqual("John", updatedEmployee.FirstName);
             Assert.AreEqual("Doe", updatedEmployee.LastName);
-            Assert.AreEqual(10m, updatedEmployee.SalaryPerHour);
+            Assert.AreEqual(100.50m, updatedEmployee.SalaryPerHour);
         }
     }
 }
